@@ -7,40 +7,47 @@ if(!isset($_SESSION["LoggedIn"])) { //redirection si le user n'est pas connectee
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-        }
-
-        .navbar {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-        }
-
-        .navbar span {
-            color: aqua;
-            font-weight: bold;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
-    <div>
-        👥Bienvenue, <span><?php echo isset($_SESSION["User"]) ? htmlspecialchars($_SESSION["User"]) : "Utilisateur" ?></span>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">Our Site</div>
+        <nav>
+            <a href="dashboard.php">🏠 Dashboard</a>
+            <a href="#">👤 Profile</a>
+            <a href="#">⚙ Settings</a>
+            <a href="logout.php">🚪 Logout</a>
+        </nav>
     </div>
-    <a href="logout.php" style="color: white; text-decoration: none; font-weight: bold;">🚪Déconnexion</a>
-</div>
 
-<div style="border: 4px solid #000; margin: 30px; padding: 20px; font-size: 1.2em;">
-    <p>Votre Dashboard</p>
-</div>
-
+    <!-- Main -->
+    <div class="main">
+        <h1>👥Bienvenue, <span><?php echo isset($_SESSION["User"]) ? htmlspecialchars($_SESSION["User"]) : "Utilisateur" ?></span></h1>
+        <div class="cards">
+            <div class="card">
+                <h2>Manage Profile</h2>
+                <p>Update your information, password, and preferences.</p>
+            </div>
+            <div class="card">
+                <h2>View Analytics</h2>
+                <p>See your account statistics and recent activities.</p>
+            </div>
+            <div class="card">
+                <h2>System Settings</h2>
+                <p>Configure the platform the way you like it.</p>
+            </div>
+            <div class="card">
+                <h2>Support Center</h2>
+                <p>Need help? Contact our support team easily.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
