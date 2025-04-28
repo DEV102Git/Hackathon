@@ -1,6 +1,10 @@
 
 # Application Web pour Hackathon: Système d'Authentification Utilisateur
 
+### Informations :
+
+-- Le dossier "main" contient tous les fichiers utilisées.
+-- Pour connexion DB, voir "db.php" pour configurations de connexion, "db_creator" pour code SQL Si vous n'avez pas encore un database
 
 ### Fonctionnalités principales :
 
