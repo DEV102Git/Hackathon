@@ -1,22 +1,54 @@
-/*Ce style est facilement remplacable : avec changement de se fichier et accorder ses selecteurs (classes, ids..) en html*/
+/* Main variables */
+:root {
+  --primary-color: #9b5de5;
+  --dark-bg: #000;
+  --dark-card: #1e1e1e;
+  --text-light: #eee;
+  --text-muted: #999;
+}
+
+/* Global Reset */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-*
-{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
 }
-body 
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* Body base setup */
+body {
+  background: var(--dark-bg);
+  color: var(--text-light);
   min-height: 100vh;
-  background: #000;
+  display: flex;
 }
-section 
-{
+
+/* Background Grid for pages */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#333 1px, transparent 1px), 
+                    linear-gradient(90deg, #333 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -1;
+}
+
+/* Autofill fix */
+input:-webkit-autofill {
+  background-color: #333 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* --------- LOGIN PAGE STYLES ---------- */
+
+/* Animated Section Background */
+section {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -27,35 +59,22 @@ section
   flex-wrap: wrap;
   overflow: hidden;
 }
-section::before 
-{
+
+section::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#000,rgb(255, 0, 195),#000);
+  background: linear-gradient(#000, rgb(127, 0, 170), #000);
   animation: animate 5s linear infinite;
 }
-input:-webkit-autofill {
-    background-color: #333 !important;
-    color: #fff !important;
-    -webkit-text-fill-color: #fff !important;
-    transition: background-color 5000s ease-in-out 0s;
-  }
-  
-@keyframes animate 
-{
-  0%
-  {
-    transform: translateY(-100%);
-  }
-  100%
-  {
-    transform: translateY(100%);
-  }
+
+@keyframes animate {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
-section span 
-{
+
+section span {
   position: relative;
   display: block;
   width: calc(6.25vw - 2px);
@@ -64,27 +83,27 @@ section span
   z-index: 2;
   transition: 1.5s;
 }
-section span:hover 
-{
-  background: rgb(255, 0, 195);
+
+section span:hover {
+  background: rgb(127, 0, 170);
   transition: 0s;
 }
 
-section .signin
-{
+/* Signin box */
+section .signin {
   position: absolute;
   width: 400px;
-  background: #222;  
+  background: #222;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
   border-radius: 4px;
-  box-shadow: 0 15px 35px rgba(0,0,0,9);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.9);
 }
-section .signin .content 
-{
+
+section .signin .content {
   position: relative;
   width: 100%;
   display: flex;
@@ -93,27 +112,26 @@ section .signin .content
   flex-direction: column;
   gap: 40px;
 }
-section .signin .content h2 
-{
+
+section .signin .content h2 {
   font-size: 2em;
-  color: rgb(255, 0, 195);
+  color: rgb(127, 0, 170);
   text-transform: uppercase;
 }
-section .signin .content .form 
-{
+
+section .signin .content .form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-section .signin .content .form .inputBox
-{
+
+section .signin .content .form .inputBox {
   position: relative;
   width: 100%;
 }
-section .signin .content .form .inputBox input 
-{
-  position: relative;
+
+section .signin .content .form .inputBox input {
   width: 100%;
   background: #333;
   border: none;
@@ -124,8 +142,8 @@ section .signin .content .form .inputBox input
   font-weight: 500;
   font-size: 1em;
 }
-section .signin .content .form .inputBox i 
-{
+
+section .signin .content .form .inputBox i {
   position: absolute;
   left: 0;
   padding: 15px 10px;
@@ -134,64 +152,174 @@ section .signin .content .form .inputBox i
   transition: 0.5s;
   pointer-events: none;
 }
+
 .signin .content .form .inputBox input:focus ~ i,
-.signin .content .form .inputBox input:valid ~ i
-{
+.signin .content .form .inputBox input:valid ~ i {
   transform: translateY(-7.5px);
   font-size: 0.8em;
-  color: #ffffff;
+  color: #fff;
 }
-.signin .content .form .links 
-{
-  position: relative;
-  width: 100%;
+
+/* Links */
+.signin .content .form .links {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
 }
-.signin .content .form .links a 
-{
-    color: rgb(255, 0, 195);
-    font-weight: 600;
+
+.signin .content .form .links a {
+  color: rgb(127, 0, 170);
+  font-weight: 600;
   text-decoration: none;
 }
 
-.signin .content .form .inputBox input[type="submit"]
-{
+/* Submit button */
+.signin .content .form .inputBox input[type="submit"] {
   padding: 10px;
-  background: rgb(255, 0, 195);
+  background: rgb(127, 0, 170);
   color: #000;
   font-weight: 600;
   font-size: 1.35em;
   letter-spacing: 0.05em;
   cursor: pointer;
 }
-input[type="submit"]:active
-{
+
+input[type="submit"]:active {
   opacity: 0.6;
 }
+
+/* Message Component */
 .message {
-    all: unset; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    color: white; 
-    flex-direction: row; 
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  flex-direction: row;
+}
+
+/* --------- SIDEBAR PAGE STYLES ---------- */
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1a1a1a;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  height: 100%;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.sidebar .logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar nav a:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Main content */
+.main {
+  margin-left: 250px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.main h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--dark-card);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: #292929;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.card p {
+  color: var(--text-muted);
+}
+
+/* --------- RESPONSIVE ADAPTATIONS ---------- */
+
+/* Small screens: sidebar shrinks */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 60px;
+      padding: 1rem 0.5rem;
+      align-items: center;
   }
-@media (max-width: 900px)
-{
-  section span 
-  {
-    width: calc(10vw - 2px);
-    height: calc(10vw - 2px);
+
+  .sidebar .logo {
+      font-size: 1rem;
+  }
+
+  .sidebar nav a {
+      font-size: 0;
+      padding: 0.8rem;
+      text-align: center;
+  }
+
+  .main {
+      margin-left: 60px;
+      padding: 1rem;
   }
 }
-@media (max-width: 600px)
-{
-  section span 
-  {
-    width: calc(20vw - 2px);
-    height: calc(20vw - 2px);
+
+/* Background cells resize */
+@media (max-width: 900px) {
+  section span {
+      width: calc(10vw - 2px);
+      height: calc(10vw - 2px);
+  }
+}
+
+@media (max-width: 600px) {
+  section span {
+      width: calc(20vw - 2px);
+      height: calc(20vw - 2px);
   }
 }
