@@ -18,7 +18,7 @@ if(!isset($_SESSION["LoggedIn"])) { //redirection si le user n'est pas connectee
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="logo">Our Site</div>
+        <div class="logo">Navigation</div>
         <nav>
             <a href="dashboard.php">🏠 Dashboard</a>
             <a href="#">👤 Profile</a>
