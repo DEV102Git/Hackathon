@@ -51,13 +51,7 @@
 - Le nom de db est `hackathon` est La table `users` contient des champs pour `id`, `username`, et `password`.
 - Vous pouvez voir "db.php" pour changer le config du connexion, db_creator.sql pour créer le BD.   
 
-```sql
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
-);
-```
+
 
 ---
 
