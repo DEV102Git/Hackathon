@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $check_stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $check_stmt->execute();
 
-            if ($check_stmt->rowCount() > 0) { //si c'est trouvee
-                $error = "Ce nom d'utilisateur est déjà pris.";
+            if ($check_stmt->rowCount() > 0) { //si le username est trouvee dans le db
+                 $error = "Ce nom d'utilisateur est déjà pris.";
             }
             else{
                 // les requetes prepares avec bindparam protegent contre les injections SQL (params traite comme data, pas comme code)
